@@ -16,59 +16,73 @@
     .scope-section { margin-bottom: 24px; }
     .scope-row { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
     .scope-header { display: flex; flex-direction: column; align-items: center; min-width: 60px; padding-top: 4px; }
-    .scope-badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 58px; height: 58px; border-radius: 10px;
-      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.04em;
-      color: #fff; flex-direction: column; line-height: 1.2;
-    }
+    .scope-badge { display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 10px; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.04em; color: #fff; flex-direction: column; line-height: 1.2; }
     .scope-badge span { font-size: 1.3rem; font-weight: 900; line-height: 1; }
-    .s1 { background: #4b3a8c; }
-    .s2 { background: #3a6b3a; }
-    .s3 { background: #2e5c7a; }
-    .s3p { background: #8c3a3a; }
+    .s1{background:#4b3a8c} .s2{background:#3a6b3a} .s3{background:#2e5c7a} .s3p{background:#8c3a3a}
 
     .cards-group { display: flex; flex-wrap: wrap; gap: 10px; flex: 1; }
-    .card {
-      width: 112px; background: #fff; border-radius: 10px;
-      padding: 14px 8px 10px; cursor: pointer; border: 2px solid transparent;
-      transition: all 0.18s; display: flex; flex-direction: column;
-      align-items: center; gap: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    }
+    .card { width: 112px; background: #fff; border-radius: 10px; padding: 14px 8px 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.18s; display: flex; flex-direction: column; align-items: center; gap: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
     .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.13); }
-    .c1 { border-color: #d6cff0; } .c1:hover { border-color: #4b3a8c; }
-    .c2 { border-color: #c5dfc5; } .c2:hover { border-color: #3a6b3a; }
-    .c3 { border-color: #b8d4e8; } .c3:hover { border-color: #2e5c7a; }
-    .c3p { border-color: #f0c8c8; } .c3p:hover { border-color: #8c3a3a; }
+    .c1{border-color:#d6cff0} .c1:hover{border-color:#4b3a8c}
+    .c2{border-color:#c5dfc5} .c2:hover{border-color:#3a6b3a}
+    .c3{border-color:#b8d4e8} .c3:hover{border-color:#2e5c7a}
+    .c3p{border-color:#f0c8c8} .c3p:hover{border-color:#8c3a3a}
     .card-icon { font-size: 2rem; line-height: 1; }
     .card-label { font-size: 0.7rem; text-align: center; font-weight: 600; color: #333; line-height: 1.35; }
     .card-note { font-size: 0.62rem; color: #aaa; text-align: center; }
 
-    /* MODAL */
-    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100; justify-content: center; align-items: center; padding: 20px; }
+    /* ── MODAL ── */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: center; padding: 20px; }
     .overlay.open { display: flex; }
-    .modal { background: #fff; border-radius: 16px; max-width: 600px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 32px 28px 28px; position: relative; animation: popIn 0.2s ease; }
-    @keyframes popIn { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #aaa; }
+    .modal { background: #fff; border-radius: 16px; max-width: 580px; width: 100%; position: relative; animation: popIn 0.2s ease; display: flex; flex-direction: column; max-height: 88vh; }
+    @keyframes popIn { from{transform:scale(0.92);opacity:0} to{transform:scale(1);opacity:1} }
+
+    /* 모달 헤더 */
+    .modal-header { padding: 22px 24px 16px; border-bottom: 1px solid #f0f0f0; flex-shrink: 0; }
+    .modal-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #bbb; }
     .modal-close:hover { color: #333; }
-    .modal-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; color: #fff; }
-    .t1 { background: #4b3a8c; } .t2 { background: #3a6b3a; } .t3 { background: #2e5c7a; } .t3p { background: #8c3a3a; }
-    .modal-icon { font-size: 2.8rem; margin-bottom: 6px; }
-    .modal-title { font-size: 1.15rem; font-weight: 700; color: #1a2b45; margin-bottom: 14px; }
-    .sec { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin: 16px 0 6px; }
-    .body { font-size: 0.87rem; line-height: 1.75; color: #444; }
+    .modal-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; color: #fff; }
+    .t1{background:#4b3a8c} .t2{background:#3a6b3a} .t3{background:#2e5c7a} .t3p{background:#8c3a3a}
+    .modal-title-row { display: flex; align-items: center; gap: 10px; }
+    .modal-icon { font-size: 2rem; }
+    .modal-title { font-size: 1.1rem; font-weight: 700; color: #1a2b45; }
+
+    /* 스텝 인디케이터 */
+    .step-bar { display: flex; padding: 14px 24px 0; gap: 0; flex-shrink: 0; overflow-x: auto; }
+    .step-item { flex: 1; text-align: center; padding: 8px 4px; font-size: 0.7rem; font-weight: 600; color: #bbb; border-bottom: 3px solid #eee; cursor: pointer; white-space: nowrap; transition: all 0.15s; min-width: 60px; }
+    .step-item.active { color: #1a2b45; border-bottom-color: #1a2b45; }
+    .step-item.done { color: #888; border-bottom-color: #ccc; }
+
+    /* 스텝 콘텐츠 */
+    .step-content { padding: 20px 24px; overflow-y: auto; flex: 1; min-height: 200px; }
+    .step-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #999; margin-bottom: 10px; }
+    .step-body { font-size: 0.87rem; line-height: 1.75; color: #444; }
+
+    /* 네비게이션 */
+    .modal-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; border-top: 1px solid #f0f0f0; flex-shrink: 0; }
+    .nav-btn { display: flex; align-items: center; gap: 6px; background: none; border: 1.5px solid #ddd; border-radius: 8px; padding: 7px 16px; font-size: 0.82rem; font-weight: 600; color: #555; cursor: pointer; transition: all 0.15s; }
+    .nav-btn:hover:not(:disabled) { border-color: #1a2b45; color: #1a2b45; background: #f0f4ff; }
+    .nav-btn:disabled { opacity: 0.3; cursor: default; }
+    .nav-btn.next { background: #1a2b45; border-color: #1a2b45; color: #fff; }
+    .nav-btn.next:hover:not(:disabled) { background: #2e4a6e; }
+    .step-counter { font-size: 0.78rem; color: #aaa; }
+
+    /* 콘텐츠 스타일 */
     .formula { background: #f0f4ff; border-left: 4px solid #2e5c7a; border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #1a3a5c; margin: 8px 0; line-height: 1.7; }
     .formula.red { background: #fff0f0; border-color: #8c3a3a; color: #5a1a1a; }
-    .formula.green { background: #f0fff0; border-color: #3a6b3a; color: #1a4a1a; }
-    .note { font-size: 0.78rem; color: #888; font-style: italic; margin-top: 5px; line-height: 1.5; }
-    ul.dl { list-style: none; padding: 0; }
-    ul.dl li { font-size: 0.84rem; color: #555; padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
-    ul.dl li::before { content: '•'; position: absolute; left: 0; color: #bbb; }
+    .warn { background: #fff8e1; border-left: 4px solid #f0a500; border-radius: 6px; padding: 8px 12px; font-size: 0.82rem; color: #7a5a00; margin: 8px 0; line-height: 1.5; }
     table.tbl { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.8rem; }
     table.tbl th { background: #f0f4ff; color: #1a2b45; font-weight: 700; padding: 6px 8px; border: 1px solid #dde; text-align: left; }
     table.tbl td { padding: 5px 8px; border: 1px solid #eee; color: #444; vertical-align: top; }
     table.tbl tr:nth-child(even) td { background: #fafbff; }
-    .warn { background: #fff8e1; border-left: 4px solid #f0a500; border-radius: 6px; padding: 8px 12px; font-size: 0.82rem; color: #7a5a00; margin: 8px 0; }
+    ul.dl { list-style: none; padding: 0; }
+    ul.dl li { font-size: 0.85rem; color: #555; padding: 4px 0 4px 16px; position: relative; line-height: 1.5; }
+    ul.dl li::before { content: '•'; position: absolute; left: 0; color: #bbb; }
+    .ghg-card { background: #f8faff; border: 1px solid #dde8f5; border-radius: 8px; padding: 12px 14px; margin: 6px 0; }
+    .ghg-card .label { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+    .ghg-card .value { font-size: 1.0rem; font-weight: 700; color: #1a2b45; font-family: 'Courier New', monospace; }
+    .ghg-card.red { background: #fff5f5; border-color: #f5c8c8; }
+    .ghg-card.red .value { color: #8c3a3a; }
   </style>
 </head>
 <body>
@@ -76,407 +90,661 @@
 <header>
   <h1>전쟁 탄소배출 분류 체계</h1>
   <h2>Scope 1 · 2 · 3 · 3+ 세부 요소 해설</h2>
-  <p>각 항목을 클릭하면 정의·수식·데이터 출처를 확인할 수 있습니다 &nbsp;|&nbsp; 9팀 캡스톤디자인</p>
+  <p>각 항목을 클릭 → 좌우 버튼으로 단계별 정보 확인 &nbsp;|&nbsp; 9팀 캡스톤디자인</p>
 </header>
 
 <!-- SCOPE 1 -->
-<div class="scope-section">
-  <div class="scope-row">
-    <div class="scope-header">
-      <div class="scope-badge s1">SCOPE<span>1</span></div>
-    </div>
-    <div class="cards-group">
-      <div class="card c1" onclick="open_('mil-install')"><div class="card-icon">🏭</div><div class="card-label">군사 시설</div></div>
-      <div class="card c1" onclick="open_('aviation')"><div class="card-icon">✈️</div><div class="card-label">항공 전력</div></div>
-      <div class="card c1" onclick="open_('ground')"><div class="card-icon">🛡️</div><div class="card-label">지상 전력</div></div>
-      <div class="card c1" onclick="open_('naval')"><div class="card-icon">⚓</div><div class="card-label">해상 전력</div></div>
-      <div class="card c1" onclick="open_('fuel-direct')"><div class="card-icon">🛢️</div><div class="card-label">연료 소비</div></div>
-      <div class="card c1" onclick="open_('munitions')"><div class="card-icon">💥</div><div class="card-label">탄약·폭발물 사용</div></div>
-    </div>
+<div class="scope-section"><div class="scope-row">
+  <div class="scope-header"><div class="scope-badge s1">SCOPE<span>1</span></div></div>
+  <div class="cards-group">
+    <div class="card c1" onclick="open_('mil-install')"><div class="card-icon">🏭</div><div class="card-label">군사 시설</div></div>
+    <div class="card c1" onclick="open_('aviation')"><div class="card-icon">✈️</div><div class="card-label">항공 전력</div></div>
+    <div class="card c1" onclick="open_('ground')"><div class="card-icon">🛡️</div><div class="card-label">지상 전력</div></div>
+    <div class="card c1" onclick="open_('naval')"><div class="card-icon">⚓</div><div class="card-label">해상 전력</div></div>
+    <div class="card c1" onclick="open_('fuel-direct')"><div class="card-icon">🛢️</div><div class="card-label">연료 소비</div></div>
+    <div class="card c1" onclick="open_('munitions')"><div class="card-icon">💥</div><div class="card-label">탄약·폭발물 사용</div></div>
   </div>
-</div>
+</div></div>
 
 <!-- SCOPE 2 -->
-<div class="scope-section">
-  <div class="scope-row">
-    <div class="scope-header">
-      <div class="scope-badge s2">SCOPE<span>2</span></div>
-    </div>
-    <div class="cards-group">
-      <div class="card c2" onclick="open_('purchased-energy')"><div class="card-icon">⚡</div><div class="card-label">구매 에너지</div><div class="card-note">도식 전용</div></div>
-    </div>
+<div class="scope-section"><div class="scope-row">
+  <div class="scope-header"><div class="scope-badge s2">SCOPE<span>2</span></div></div>
+  <div class="cards-group">
+    <div class="card c2" onclick="open_('purchased-energy')"><div class="card-icon">⚡</div><div class="card-label">구매 에너지</div><div class="card-note">도식 전용</div></div>
   </div>
-</div>
+</div></div>
 
 <!-- SCOPE 3 -->
-<div class="scope-section">
-  <div class="scope-row">
-    <div class="scope-header">
-      <div class="scope-badge s3">SCOPE<span>3</span></div>
-    </div>
-    <div class="cards-group">
-      <div class="card c3" onclick="open_('goods-mfg')"><div class="card-icon">🪖</div><div class="card-label">소모된 탄약·물자 제조</div></div>
-      <div class="card c3" onclick="open_('logistics')"><div class="card-icon">🚛</div><div class="card-label">군사 물자 수송</div></div>
-      <div class="card c3" onclick="open_('waste')"><div class="card-icon">♻️</div><div class="card-label">폐기물 관리</div></div>
-      <div class="card c3" onclick="open_('fuel-lca')"><div class="card-icon">🔬</div><div class="card-label">연료·에너지 LCA</div></div>
-    </div>
+<div class="scope-section"><div class="scope-row">
+  <div class="scope-header"><div class="scope-badge s3">SCOPE<span>3</span></div></div>
+  <div class="cards-group">
+    <div class="card c3" onclick="open_('goods-mfg')"><div class="card-icon">🪖</div><div class="card-label">소모된 탄약·물자 제조</div></div>
+    <div class="card c3" onclick="open_('logistics')"><div class="card-icon">🚛</div><div class="card-label">군사 물자 수송</div></div>
+    <div class="card c3" onclick="open_('waste')"><div class="card-icon">♻️</div><div class="card-label">폐기물 관리</div></div>
+    <div class="card c3" onclick="open_('fuel-lca')"><div class="card-icon">🔬</div><div class="card-label">연료·에너지 LCA</div></div>
   </div>
-</div>
+</div></div>
 
 <!-- SCOPE 3+ -->
-<div class="scope-section">
-  <div class="scope-row">
-    <div class="scope-header">
-      <div class="scope-badge s3p">SCOPE<span>3+</span></div>
-    </div>
-    <div class="cards-group">
-      <div class="card c3p" onclick="open_('destroyed-equip')"><div class="card-icon">🔧</div><div class="card-label">파괴된 군사 장비</div></div>
-      <div class="card c3p" onclick="open_('wildfires')"><div class="card-icon">🔥</div><div class="card-label">산불·지표 화재</div></div>
-      <div class="card c3p" onclick="open_('civilian-infra')"><div class="card-icon">🏚️</div><div class="card-label">민간 인프라 피해</div></div>
-      <div class="card c3p" onclick="open_('energy-infra')"><div class="card-icon">🏭</div><div class="card-label">에너지 인프라 폭격</div></div>
-      <div class="card c3p" onclick="open_('reconstruction')"><div class="card-icon">🔨</div><div class="card-label">복구·재건</div></div>
-      <div class="card c3p" onclick="open_('displacement')"><div class="card-icon">🚶</div><div class="card-label">인구 이동·난민</div></div>
-      <div class="card c3p" onclick="open_('aviation-reroute')"><div class="card-icon">🛫</div><div class="card-label">항공 우회</div></div>
-    </div>
+<div class="scope-section"><div class="scope-row">
+  <div class="scope-header"><div class="scope-badge s3p">SCOPE<span>3+</span></div></div>
+  <div class="cards-group">
+    <div class="card c3p" onclick="open_('destroyed-equip')"><div class="card-icon">🔧</div><div class="card-label">파괴된 군사 장비</div></div>
+    <div class="card c3p" onclick="open_('wildfires')"><div class="card-icon">🔥</div><div class="card-label">산불·지표 화재</div></div>
+    <div class="card c3p" onclick="open_('civilian-infra')"><div class="card-icon">🏚️</div><div class="card-label">민간 인프라 피해</div></div>
+    <div class="card c3p" onclick="open_('energy-infra')"><div class="card-icon">🏭</div><div class="card-label">에너지 인프라 폭격</div></div>
+    <div class="card c3p" onclick="open_('reconstruction')"><div class="card-icon">🔨</div><div class="card-label">복구·재건</div></div>
+    <div class="card c3p" onclick="open_('displacement')"><div class="card-icon">🚶</div><div class="card-label">인구 이동·난민</div></div>
+    <div class="card c3p" onclick="open_('aviation-reroute')"><div class="card-icon">🛫</div><div class="card-label">항공 우회</div></div>
   </div>
-</div>
+</div></div>
 
 <!-- MODAL -->
 <div class="overlay" id="overlay" onclick="closeOnBg(event)">
   <div class="modal" id="modal">
     <button class="modal-close" onclick="close_()">✕</button>
-    <div id="mc"></div>
+    <div class="modal-header">
+      <span class="modal-tag" id="m-tag"></span>
+      <div class="modal-title-row">
+        <span class="modal-icon" id="m-icon"></span>
+        <span class="modal-title" id="m-title"></span>
+      </div>
+    </div>
+    <div class="step-bar" id="step-bar"></div>
+    <div class="step-content" id="step-content"></div>
+    <div class="modal-nav">
+      <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">← 이전</button>
+      <span class="step-counter" id="step-counter"></span>
+      <button class="nav-btn next" id="btn-next" onclick="navigate(1)">다음 →</button>
+    </div>
   </div>
 </div>
 
 <script>
-const D = {
+const STEPS = ['정의', '분류', '데이터 수집', '수식·계산', 'GHG 값'];
 
-  /* ───────── SCOPE 1 ───────── */
+const D = {
   'mil-install': {
-    tag:'SCOPE 1', tc:'t1', icon:'🏭',
-    title:'군사 시설 (Military Installations)',
-    def:'군이 운영하는 고정 및 이동식 거점에서 화석연료를 직접 연소할 때 발생하는 배출. 기지 내 에너지 자립을 위한 가장 기초적인 배출원.',
-    extra:`<table class="tbl"><tr><th>구분</th><th>포함 범위</th></tr>
+    tag:'SCOPE 1', tc:'t1', icon:'🏭', title:'군사 시설 (Military Installations)',
+    steps: [
+      // 1. 정의
+      `<div class="step-title">정의</div>
+      <div class="step-body">군이 소유하고 통제하는 고정 및 이동식 거점에서 화석연료를 직접 연소할 때 발생하는 온실가스 배출. 기지 내 에너지 자립을 위한 가장 기초적인 Scope 1 배출원이다.</div>`,
+      // 2. 분류
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>구분</th><th>포함 범위</th></tr>
       <tr><td>영구 기지</td><td>후방 본토 기지, 해외 주둔 기지, 훈련 시설</td></tr>
       <tr><td>임시 기지</td><td>FOB(전방작전기지), 야전 캠프, 이동식 지휘소</td></tr>
       <tr><td>연소 설비</td><td>보일러(난방·취사), 비상 발전기, 소각로</td></tr>
       <tr><td>연료 종류</td><td>JP-8, 경유, 천연가스, LPG</td></tr></table>
-      <div class="warn">경계 설정: 상업 전력망에서 구매한 전기는 Scope 2로 분리. 기지에서 직접 발전기를 돌려 생산한 전기는 Scope 1.</div>`,
-    formulas:[
-      'E = FC [L] × EF [kgCO₂/L]\n\nJP-8:  약 2.52 kgCO₂/L\n경유:  약 2.68 kgCO₂/L\nLPG:  약 1.51 kgCO₂/L'
-    ],
-    src:['IPCC 국가 온실가스 인벤토리 가이드라인 (1.A.5항)', '각국 국방부 에너지 소비 보고서'],
-    limit:'군사 기밀로 연료 소비량 데이터 공개 제한 — 군 연료 보급 기록이 1차 출처'
+      <div class="warn">상업 전력망에서 구매한 전기 → Scope 2로 분리<br>기지에서 직접 발전기를 돌려 생산한 전기 → Scope 1</div>`,
+      // 3. 데이터 수집
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>1차 출처: 군 연료 보급 기록 (Fuel Log)</li>
+        <li>IPCC 국가 온실가스 인벤토리 가이드라인 (1.A.5항)</li>
+        <li>각국 국방부 에너지 소비 보고서</li>
+      </ul>
+      <div class="warn">⚠️ 군사 기밀로 인해 연료 소비량 데이터 공개 제한 — 대부분 비공개</div>`,
+      // 4. 수식·계산
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = FC [L] × EF [kgCO₂/L]
+
+E   : 배출량 [kgCO₂]
+FC  : 연료 소비량 [L]
+EF  : 연료별 배출계수 [kgCO₂/L]</div>`,
+      // 5. GHG 값
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">JP-8 (항공유 겸용 지상 연료)</div><div class="value">2.52 kgCO₂/L</div></div>
+      <div class="ghg-card"><div class="label">경유 (디젤)</div><div class="value">2.68 kgCO₂/L</div></div>
+      <div class="ghg-card"><div class="label">LPG</div><div class="value">1.51 kgCO₂/L</div></div>`
+    ]
   },
 
   'aviation': {
-    tag:'SCOPE 1', tc:'t1', icon:'✈️',
-    title:'항공 전력 (Aviation)',
-    def:'제트·터보프롭 엔진에서 항공유(JP-8, Jet-A)를 연소할 때 발생하는 배출. 군 배출원 중 단위 연료 소비량이 가장 크며, 고고도 배출로 인한 비CO₂ 기후 강제력이 지표 연소보다 2~4배 높음.',
-    extra:`<table class="tbl"><tr><th>배출 물질</th><th>발생 메커니즘</th><th>기후 영향</th></tr>
+    tag:'SCOPE 1', tc:'t1', icon:'✈️', title:'항공 전력 (Aviation)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">제트·터보프롭 엔진에서 항공유(JP-8, Jet-A)를 연소할 때 발생하는 배출. 군 배출원 중 단위 연료 소비량이 가장 크며, 고고도 배출로 인한 비CO₂ 기후 강제력이 지표 연소보다 2~4배 높다.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>배출 물질</th><th>발생 원인</th><th>기후 영향</th></tr>
       <tr><td>CO₂</td><td>완전 연소</td><td>장기 온난화 주 지표</td></tr>
-      <tr><td>NOx</td><td>고온 연소 시 대기 N₂ 산화</td><td>성층권 오존 파괴, 고고도 영향 큼</td></tr>
+      <tr><td>NOx</td><td>고온 연소 시 대기 N₂ 산화</td><td>성층권 오존 파괴</td></tr>
       <tr><td>HC</td><td>불완전 연소</td><td>광화학 스모그 전구체</td></tr>
       <tr><td>Black Carbon</td><td>연료 불완전 연소</td><td>단기 강력 온난화, 빙하 알베도 감소</td></tr></table>
-      <div class="warn">포함: 전투 출격, 정찰, 수송, 공중급유, 지상 엔진 테스트(Ground Run-up), 터보제트·피스톤 엔진 드론<br>제외: 소형 전기 드론(→ Scope 2), 항공기 제조·정비(→ Scope 3)</div>`,
-    formulas:[
-      'E_aircraft = FC [kg] × 3.16 [kgCO₂/kg_fuel]\n\nF-16 순항: 약 2,800 L/hr (애프터버너 미사용)\n애프터버너: 최대 9,000 L/hr\n\n거리당 환산:\nE [kgCO₂/km] = 연료소비율[kg/hr] × 3.16 ÷ 속도[km/hr]'
-    ],
-    src:['ICAO 항공 배출계수 (Jet-A: 3.16 kgCO₂/kg)', 'US Marine Corps 연료 소비 데이터'],
-    limit:'작전 중 애프터버너 사용 여부 미공개 → 소비량 최대 3배 차이'
+      <div class="warn">포함: 전투 출격·정찰·수송·공중급유·지상 엔진 테스트·터보제트 드론<br>제외: 소형 전기 드론(→Scope 2), 항공기 제조·정비(→Scope 3)</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>ICAO 항공 배출계수 데이터베이스</li>
+        <li>US Marine Corps 연료 소비 데이터</li>
+        <li>비행 로그(Flight Log) — 비공개로 추산 필요</li>
+        <li>ADS-B 항공 추적 데이터 (공개 비행 정보)</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E_aircraft = FC [kg] × EF_jetA [kgCO₂/kg]
+
+거리당 환산:
+E [kgCO₂/km] = 연료소비율[kg/hr] × EF ÷ 속도[km/hr]</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">Jet-A 연소 배출계수</div><div class="value">3.16 kgCO₂/kg_fuel</div></div>
+      <div class="ghg-card"><div class="label">F-16 순항 연료 소비 (애프터버너 미사용)</div><div class="value">약 2,800 L/hr</div></div>
+      <div class="ghg-card red"><div class="label">F-16 애프터버너 사용 시</div><div class="value">최대 9,000 L/hr</div></div>`
+    ]
   },
 
   'ground': {
-    tag:'SCOPE 1', tc:'t1', icon:'🛡️',
-    title:'지상 전력 (Ground Forces)',
-    def:'디젤 엔진 기반 기갑·차량화 부대의 기동 및 작전 중 연소 배출. 전차는 갤런당 수백 미터밖에 이동하지 못할 정도로 연비가 극히 낮음 (M1 Abrams: 약 0.6 mpg).',
-    extra:`<table class="tbl"><tr><th>배출 물질</th><th>특이사항</th></tr>
+    tag:'SCOPE 1', tc:'t1', icon:'🛡️', title:'지상 전력 (Ground Forces)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">디젤 엔진 기반 기갑·차량화 부대의 기동 및 작전 중 연소 배출. 전차는 갤런당 수백 미터밖에 이동하지 못할 정도로 연비가 극히 낮다 (M1 Abrams: 약 0.6 mpg).</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>배출 물질</th><th>특이사항</th></tr>
       <tr><td>CO₂</td><td>주 배출원, 연료 소비량에 직접 비례</td></tr>
-      <tr><td>CO</td><td>엔진 공회전·저속 기동 시 불완전 연소</td></tr>
+      <tr><td>CO</td><td>공회전·저속 기동 시 불완전 연소</td></tr>
       <tr><td>NOx</td><td>고온·고압 디젤 연소 특성</td></tr>
-      <tr><td>PM</td><td>디젤 엔진 특유의 입자상 물질, Black Carbon 포함</td></tr></table>
-      <div class="warn">포함: 전투 기동, 군수 보급 차량(HET·HEMTT), 공병 장비, 공회전(Idling)<br>주의: 궤도차량 vs. 차륜차량 배출계수 구분 필요</div>`,
-    formulas:[
-      'E_tank = FC [L/km] × ρ [kg/L] × EF_diesel [kgCO₂/kg]\n\nM1 Abrams: 1.71~2.85 L/km (0.35~0.6 MPG)\n디젤 밀도 ρ: 0.832 kg/L\n디젤 EF:    2.67 kgCO₂/kg'
-    ],
-    src:['US DoD 차량 연료 소비 데이터', 'Globalsecurity.org M1 Abrams 제원'],
-    limit:'공회전 시간 데이터 미공개 — 전장에서 전차는 전투대기 중 엔진을 켜두는 경우 많아 공회전 배출 상당'
+      <tr><td>PM</td><td>디젤 특유의 입자상 물질, Black Carbon 포함</td></tr></table>
+      <div class="warn">포함: 전투 기동, 군수 보급 차량, 공병 장비, 공회전(Idling)<br>주의: 궤도차량 vs. 차륜차량 배출계수 구분 필요</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>US DoD 차량 연료 소비 데이터</li>
+        <li>Globalsecurity.org 장비 제원</li>
+        <li>OSINT 장비 운용 기록</li>
+      </ul>
+      <div class="warn">⚠️ 공회전 시간 데이터 미공개 — 전장 대기 중 엔진 상시 가동으로 실제 배출량 상당히 높음</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E_tank = FC [L/km] × ρ [kg/L] × EF_diesel [kgCO₂/kg]
+
+FC  : 연료 소비율 [L/km]
+ρ   : 연료 밀도 [kg/L]
+EF  : 디젤 배출계수 [kgCO₂/kg]</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">디젤 배출계수</div><div class="value">2.67 kgCO₂/kg</div></div>
+      <div class="ghg-card"><div class="label">디젤 밀도</div><div class="value">0.832 kg/L</div></div>
+      <div class="ghg-card red"><div class="label">M1 Abrams 연료 소비</div><div class="value">1.71 ~ 2.85 L/km</div></div>`
+    ]
   },
 
   'naval': {
-    tag:'SCOPE 1', tc:'t1', icon:'⚓',
-    title:'해상 전력 (Naval Forces)',
-    def:'대형 함정의 가스터빈·디젤·증기터빈 구동 시 배출. 벙커유(HFO) 또는 해군 증류유(F-76) 사용. SOx 배출이 육상·항공 대비 두드러진 특징.',
-    extra:`<table class="tbl"><tr><th>배출 물질</th><th>특이사항</th></tr>
+    tag:'SCOPE 1', tc:'t1', icon:'⚓', title:'해상 전력 (Naval Forces)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">대형 함정의 가스터빈·디젤·증기터빈 구동 시 발생하는 배출. 벙커유(HFO) 또는 해군 증류유(F-76) 사용. SOx 배출이 육상·항공 대비 두드러진 특징.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>배출 물질</th><th>특이사항</th></tr>
       <tr><td>CO₂</td><td>장거리 작전으로 절대량 매우 큼</td></tr>
       <tr><td>SOx</td><td>벙커유의 높은 황 함량, 산성비·해양 산성화 원인</td></tr>
       <tr><td>NOx</td><td>가스터빈 고온 연소</td></tr>
       <tr><td>PM</td><td>저급 연료 연소 시 다량 발생</td></tr></table>
-      <div class="warn">포함: 항모강습단(CSG) 전체 함정, 항구 정박 중 보조 발전(APU)<br>제외: 원자력 추진 함정(핵연료 직접 연소 없음 → Scope 1 제외, 핵연료 생산·처리는 Scope 3), 함재기 연료(→ 항공 전력)</div>`,
-    formulas:[
-      'GHG_intensity = E_WTW [gCO₂eq] / Energy_consumed [MJ]\n\nHFO Well-to-Tank EF:     13.5 gCO₂eq/MJ\nHFO Tank-to-Wake CO₂:   3.114 gCO₂/g연료\n\n배출량 = 연료 소비량 [t] × 열량 [MJ/t] × GHG강도'
-    ],
-    src:['IMO MEPC.391(81) Guidelines on Life Cycle GHG Intensity (2024)', 'ICCT Well-to-Wake Briefing (2021)'],
-    limit:'군사 함정 연료 소비량 비공개 — 민간 선박 EF 준용'
+      <div class="warn">포함: 항모강습단 전체 함정, 항구 정박 중 보조 발전(APU)<br>제외: 원자력 추진 함정(→핵연료 생산·처리는 Scope 3), 함재기 연료(→항공 전력)</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>IMO MEPC.391(81) 해상 가이드라인 (2024)</li>
+        <li>ICCT Well-to-Wake Briefing (2021)</li>
+        <li>함정별 연료 소비 제원 (공개 데이터 활용)</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">GHG_intensity = E_WTW [gCO₂eq] / Energy [MJ]
+
+배출량 = 연료소비량 [t] × 열량 [MJ/t] × GHG강도</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">HFO Well-to-Tank 배출계수</div><div class="value">13.5 gCO₂eq/MJ</div></div>
+      <div class="ghg-card"><div class="label">HFO Tank-to-Wake CO₂</div><div class="value">3.114 gCO₂/g연료</div></div>`
+    ]
   },
 
   'fuel-direct': {
-    tag:'SCOPE 1', tc:'t1', icon:'🛢️',
-    title:'연료 소비 (Scope 1 직접 + Scope 3 업스트림 구분)',
-    def:'연료 자체를 하나의 배출 범주로 설정하여 직접 연소(Scope 1)와 연료 생산·운반 과정(Scope 3 업스트림)을 명확히 구분.',
-    extra:`<div class="formula green">원유 채굴 → 정제 → 운송 → 군 저장소 → 장비 탱크 → 연소
-      ↑                                              ↑
-   Scope 3 업스트림                              Scope 1</div>
+    tag:'SCOPE 1', tc:'t1', icon:'🛢️', title:'연료 소비 (Scope 1 직접 + Scope 3 업스트림)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">연료 자체를 하나의 배출 범주로 설정하여 직접 연소(Scope 1)와 연료 생산·운반 과정(Scope 3 업스트림)을 명확히 구분한다.</div>`,
+      `<div class="step-title">분류</div>
       <table class="tbl"><tr><th>분류</th><th>내용</th></tr>
       <tr><td>Scope 1</td><td>장비 탱크 내 연료의 실제 연소</td></tr>
       <tr><td>Scope 3</td><td>정유 과정 에너지 사용, 메탄 누출(flaring), 유조선 운항 배출</td></tr>
-      <tr><td>참고</td><td>군사 연료 보급선(UNREP, 해상 보급)의 연료 소비 → Scope 1 (해상 전력)</td></tr></table>`,
-    formulas:[
-      '직접 배출:\nE = Σ (FC_y × NCV_y × CC_y × 44/12)\n\nFC_y: 연료 유형 y 소비량 [t]\nNCV_y: 순발열량 [GJ/t]\nCC_y: 탄소 함량 [tC/GJ]\n\n직접 배출계수: 3.19 tCO₂/t of fuel\n업스트림 배출계수: 0.746 tCO₂e/t of fuel',
-      '※ 연료 연소 시 CH₄·N₂O 배출은 중요하지 않은 것으로 간주하여 제외\n※ 배출계수: IPCC 기본값 또는 국가별 인벤토리 값 사용\n※ 업스트림: EPA·UK DESNZ 수치 적용'
-    ],
-    src:['IPCC 국가 온실가스 인벤토리 가이드라인', 'US EPA 배출계수', 'UK DESNZ 보고 수치'],
-    limit:'군 연료 보급선 운항 정보 비공개'
+      <tr><td>참고</td><td>해상 연료 보급선(UNREP) 연료 소비 → Scope 1</td></tr></table>
+      <div class="formula" style="margin-top:10px">원유 채굴 → 정제 → 운송 → 군 저장소 → 장비 탱크 → 연소
+     ↑ Scope 3 업스트림                              ↑ Scope 1</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>IPCC 국가 온실가스 인벤토리 가이드라인</li>
+        <li>US EPA 배출계수</li>
+        <li>UK DESNZ (에너지 안보·넷제로부) 보고 수치</li>
+        <li>GREET, Ecoinvent LCA 데이터베이스 (업스트림)</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = Σ (FC_y × NCV_y × CC_y × 44/12)
+
+FC_y  : 연료 유형 y 소비량 [t]
+NCV_y : 순발열량 [GJ/t]
+CC_y  : 탄소 함량 [tC/GJ]
+
+※ CH₄·N₂O 배출은 중요하지 않은 것으로 간주하여 제외</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">직접 배출계수 (연소)</div><div class="value">3.19 tCO₂/t of fuel</div></div>
+      <div class="ghg-card"><div class="label">업스트림 배출계수 (WTT)</div><div class="value">0.746 tCO₂e/t of fuel</div></div>`
+    ]
   },
 
   'munitions': {
-    tag:'SCOPE 1', tc:'t1', icon:'💥',
-    title:'탄약·폭발물 사용 (Munitions)',
-    def:'화약·추진제·작약 폭발·연소 시 발생하는 배출. 산소 균형이 음수인 폭발물 특성상 CO·NOx·검댕이 다량 발생하며, N₂O의 높은 GWP(273)가 중요.',
-    extra:`<table class="tbl"><tr><th>배출 물질</th><th>발생 원인</th><th>GWP(100년)</th><th>특이사항</th></tr>
-      <tr><td>CO₂</td><td>탄소 기반 추진제 완전 산화</td><td>1</td><td>기준 물질</td></tr>
-      <tr><td>CO</td><td>불완전 연소 (산소 부족)</td><td>~3</td><td>고농도 발생</td></tr>
-      <tr><td>N₂O</td><td>질소 함유 추진제 (RDX, TNT, PETN)</td><td>273</td><td>강력 온실가스</td></tr>
-      <tr><td>CH₄</td><td>추진제 불완전 연소</td><td>27.9</td><td>-</td></tr>
-      <tr><td>NOx</td><td>고온 폭발 시 대기 질소 산화</td><td>-</td><td>오존 영향</td></tr></table>
-      <table class="tbl" style="margin-top:8px"><tr><th>탄약 유형</th><th>포함</th><th>비고</th></tr>
+    tag:'SCOPE 1', tc:'t1', icon:'💥', title:'탄약·폭발물 사용 (Munitions)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">화약·추진제·작약 폭발·연소 시 발생하는 배출. 산소 균형이 음수인 폭발물 특성상 CO·NOx·검댕이 다량 발생하며, N₂O의 높은 GWP(273)가 핵심.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>탄약 유형</th><th>포함</th><th>비고</th></tr>
       <tr><td>155mm 포탄</td><td>✅</td><td>기준 배출계수 적용</td></tr>
       <tr><td>로켓 (HIMARS 등)</td><td>✅</td><td>×1.2 조정계수</td></tr>
-      <tr><td>미사일 (순항·탄도)</td><td>✅</td><td>×1.2 조정, 비행 중 추진 연소 포함</td></tr>
-      <tr><td>지뢰·수류탄·박격포탄</td><td>✅</td><td>×1.2 조정</td></tr>
-      <tr><td>불발탄</td><td>❌</td><td>폭발 없으므로 배출 없음 (제거 과정은 Scope 3)</td></tr></table>`,
-    formulas:[
-      'E_munitions = M [kg] × EF [kgCO₂eq/kg]\n\nTNT (C₇H₅N₃O₆): 폭발 시 CO₂, CO, H₂O, N₂ 생성\nRDX (C₃H₆N₆O₆): ~1.8 kgCO₂eq/kg TNT 환산\n\n기준: 155mm 포탄 배출계수\n타 탄약: × 1.2 조정계수 적용\n\n미사일·포탄: 폭약 중량 + 추진체 연료 양쪽 모두 산정'
-    ],
-    src:['Boichuk et al., Science of the Total Environment (2024)', 'US EPA TNT Technical Fact Sheet'],
-    limit:'탄약 사용 수량 기밀 → OSINT·위성으로 간접 추산. 불확실도 ±40%'
+      <tr><td>미사일 (순항·탄도)</td><td>✅</td><td>×1.2, 비행 중 추진 연소 포함</td></tr>
+      <tr><td>지뢰·수류탄·박격포탄</td><td>✅</td><td>×1.2 조정계수</td></tr>
+      <tr><td>불발탄</td><td>❌</td><td>폭발 없음 (제거 과정은 Scope 3)</td></tr></table>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>Boichuk et al., Science of the Total Environment (2024)</li>
+        <li>US EPA TNT Technical Fact Sheet</li>
+        <li>OSINT 탄약 사용 추산 (전장 관측 데이터)</li>
+      </ul>
+      <div class="warn">⚠️ 탄약 사용 수량 기밀 → OSINT·위성으로 간접 추산. 불확실도 ±40%</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = M [kg] × EF [kgCO₂eq/kg]
+
+기준: 155mm 포탄 배출계수
+타 탄약: × 1.2 조정계수
+
+미사일·포탄: 폭약 중량 + 추진체 연료 양쪽 모두 산정</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">RDX 기준 배출계수</div><div class="value">~1.8 kgCO₂eq/kg</div></div>
+      <div class="ghg-card"><div class="label">N₂O GWP (100년)</div><div class="value">273</div></div>
+      <div class="ghg-card"><div class="label">CH₄ GWP (100년)</div><div class="value">27.9</div></div>`
+    ]
   },
 
-  /* ───────── SCOPE 2 ───────── */
   'purchased-energy': {
-    tag:'SCOPE 2', tc:'t2', icon:'⚡',
-    title:'구매 에너지 (Purchased Energy) — 도식 전용',
-    def:'군사 기지가 외부 상업 전력망에서 구매한 전기·증기·난방·냉방 사용 시 발생하는 간접 배출. 배출은 실제로 발전소에서 일어나지만 기지가 소비함으로써 책임을 공유.',
-    extra:`<div class="warn">⚠️ 이 프레임워크에서는 수치 산출에서 제외 (도식에는 포함)<br><br>
+    tag:'SCOPE 2', tc:'t2', icon:'⚡', title:'구매 에너지 (Purchased Energy) — 도식 전용',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">군사 기지가 외부 상업 전력망에서 구매한 전기·증기·난방·냉방 사용 시 발생하는 간접 배출. 배출은 발전소에서 일어나지만 기지가 소비함으로써 책임을 공유하는 개념.</div>`,
+      `<div class="step-title">분류</div>
+      <div class="warn">⚠️ 이 프레임워크에서 수치 산출 제외 (도식에만 포함)<br><br>
       이유 ①: 전쟁 중 민간 전력망 파괴·불안정 → 대부분 자체 발전기(Scope 1)로 전환<br>
-      이유 ②: 교전국의 전력 공급량·전력원 정보 비공개로 데이터 확보 극히 어려움<br>
-      이유 ③: 개념적 완결성을 위해 그림에는 포함하되 수치 산출은 생략</div>`,
-    formulas:[
-      '(참고용)\nE = 전력사용량 [kWh] × 전력망 EF [kgCO₂/kWh]\n\n한국 전력망 평균: 약 0.46 kgCO₂/kWh (2022)'
-    ],
-    src:['IEA 국가별 전력망 배출계수', '한국전력 전력통계'],
-    limit:'전시 데이터 확보 불가로 계산에서 제외'
+      이유 ②: 교전국의 전력 공급량·전력원 정보 비공개<br>
+      이유 ③: 개념적 완결성을 위해 도식에만 포함</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>IEA 국가별 전력망 배출계수</li>
+        <li>한국전력 전력통계</li>
+      </ul>
+      <div class="warn">⚠️ 전시 데이터 확보 불가 — 계산에서 제외</div>`,
+      `<div class="step-title">수식·계산 (참고용)</div>
+      <div class="formula">E = 전력사용량 [kWh] × 전력망 EF [kgCO₂/kWh]</div>`,
+      `<div class="step-title">GHG 값 (참고용)</div>
+      <div class="ghg-card"><div class="label">한국 전력망 평균 배출계수 (2022)</div><div class="value">약 0.46 kgCO₂/kWh</div></div>`
+    ]
   },
 
-  /* ───────── SCOPE 3 ───────── */
   'goods-mfg': {
-    tag:'SCOPE 3', tc:'t3', icon:'🪖',
-    title:'소모된 탄약·물자 제조',
-    def:'전쟁 중 실제로 소비된 탄약·식량·피복·의약품 등 소모성 군수품의 제조 단계에서 발생한 탄소를 사후 귀속. 실제 소모된 것의 제조 배출만 포함하며 만들었지만 쓰지 않은 것은 제외.',
-    extra:`<table class="tbl"><tr><th>품목</th><th>포함 내용</th></tr>
+    tag:'SCOPE 3', tc:'t3', icon:'🪖', title:'소모된 탄약·물자 제조',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전쟁 중 실제로 소비된 탄약·식량·피복·의약품 등 소모성 군수품의 제조 단계에서 발생한 탄소를 사후 귀속. 실제 소모된 것만 포함, 만들었지만 쓰지 않은 것은 제외.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>품목</th><th>포함 내용</th></tr>
       <tr><td>포탄·미사일</td><td>철강, 화약, 추진제, 기폭장치 제조 에너지</td></tr>
-      <tr><td>식량 (전투식량, MRE)</td><td>농업 생산, 가공, 포장, 냉장 배출</td></tr>
+      <tr><td>식량 (MRE 등)</td><td>농업 생산, 가공, 포장, 냉장 배출</td></tr>
       <tr><td>연료통·컨테이너</td><td>1회용 포장재 제조</td></tr>
       <tr><td>의약품·의무 용품</td><td>제약 제조 에너지</td></tr></table>
-      <div class="warn">주의: 전차·전투기 등 내구재는 여기서 제외 → Scope 3+의 파괴된 군사 장비에서 별도 처리<br>포탄은 전쟁 시 완전 소모품이므로 제조 탄소 100% 귀속</div>`,
-    formulas:[
-      'E = 소모량 [단위] × 품목별 내재 탄소 [kgCO₂eq/단위]\n\n철강: ~1.8~2.8 tCO₂/t\n알루미늄: ~8~12 tCO₂/t'
-    ],
-    src:['GHG Protocol Scope 3 Calculation Guidance', 'Ecoinvent 소재별 LCA 데이터베이스'],
-    limit:'방산업체 공급망 데이터 비공개'
+      <div class="warn">전차·전투기 등 내구재 제외 → Scope 3+의 파괴된 군사 장비에서 별도 처리<br>포탄은 완전 소모품이므로 제조 탄소 100% 귀속</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>GHG Protocol Scope 3 Calculation Guidance</li>
+        <li>Ecoinvent 소재별 LCA 데이터베이스</li>
+      </ul>
+      <div class="warn">⚠️ 방산업체 공급망 데이터 비공개</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = 소모량 [단위] × 품목별 내재 탄소 [kgCO₂eq/단위]</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">철강 내재 탄소</div><div class="value">1.8 ~ 2.8 tCO₂/t</div></div>
+      <div class="ghg-card"><div class="label">알루미늄 내재 탄소</div><div class="value">8 ~ 12 tCO₂/t</div></div>`
+    ]
   },
 
   'logistics': {
-    tag:'SCOPE 3', tc:'t3', icon:'🚛',
-    title:'군사 물자 수송 (Military Logistics)',
-    def:'전선에 탄약·연료·식량·장비를 공급하기 위한 군수 보급망 전체의 수송 배출. 이라크전 기준 미군 수송 차량 연료 소비가 전체의 70% 이상이라는 추정도 있음.',
-    extra:`<table class="tbl"><tr><th>수송 수단</th><th>포함 구간</th></tr>
+    tag:'SCOPE 3', tc:'t3', icon:'🚛', title:'군사 물자 수송 (Military Logistics)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전선에 탄약·연료·식량·장비를 공급하기 위한 군수 보급망 전체의 수송 배출. 이라크전 기준 미군 수송 차량 연료 소비가 전체의 70% 이상이라는 추정도 있음.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>수송 수단</th><th>포함 구간</th></tr>
       <tr><td>해상 수송 (군수함·민간 용선)</td><td>본국 항구 → 작전 지역 항구</td></tr>
       <tr><td>항공 수송 (C-17, C-130)</td><td>긴급 보급, 낙하산 보급</td></tr>
       <tr><td>철도 수송</td><td>내륙 집결지 → 전방</td></tr>
-      <tr><td>도로 수송 (군수트럭)</td><td>최전선 보급 (Last Mile)</td></tr></table>
-      <div class="warn">Scope 1과의 구분:<br>군 소유 수송 차량의 연료 연소 → Scope 1 (직접 통제)<br>민간 운송사 용선(컨테이너선·민간 항공사 전세기) → Scope 3 (외부 파트너)</div>`,
-    formulas:[
-      'E = 화물량 [t] × 수송 거리 [km] × 수단별 EF [kgCO₂/t·km]\n\n트럭:  ~0.10 kgCO₂/t·km\n선박:  ~0.01 kgCO₂/t·km\n항공:  ~0.60 kgCO₂/t·km'
-    ],
-    src:['EcoTransIT World 배출 계산기', 'IMO 3차 GHG 연구'],
-    limit:'군수 보급로·물자량 비공개'
+      <tr><td>도로 수송</td><td>최전선 보급 (Last Mile)</td></tr></table>
+      <div class="warn">군 소유 수송 차량 → Scope 1<br>민간 운송사 용선 (컨테이너선·전세기) → Scope 3</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>EcoTransIT World 배출 계산기</li>
+        <li>IMO 3차 GHG 연구</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = 화물량 [t] × 수송 거리 [km] × EF [kgCO₂/t·km]</div>`,
+      `<div class="step-title">GHG 값 (수단별 배출계수)</div>
+      <div class="ghg-card"><div class="label">트럭</div><div class="value">~0.10 kgCO₂/t·km</div></div>
+      <div class="ghg-card"><div class="label">선박</div><div class="value">~0.01 kgCO₂/t·km</div></div>
+      <div class="ghg-card red"><div class="label">항공</div><div class="value">~0.60 kgCO₂/t·km</div></div>`
+    ]
   },
 
   'waste': {
-    tag:'SCOPE 3', tc:'t3', icon:'♻️',
-    title:'폐기물 관리 (Waste Management)',
-    def:'전장 및 기지에서 발생하는 각종 폐기물의 처리 과정 배출. 야전의 Burn Pit 소각은 통제 소각로보다 훨씬 많은 독성 물질과 온실가스를 배출.',
-    extra:`<table class="tbl"><tr><th>폐기물 유형</th><th>처리 방법</th><th>배출 특성</th></tr>
+    tag:'SCOPE 3', tc:'t3', icon:'♻️', title:'폐기물 관리 (Waste Management)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전장 및 기지에서 발생하는 각종 폐기물의 처리 과정 배출. 야전의 Burn Pit 소각은 통제 소각로보다 훨씬 많은 독성 물질과 온실가스를 배출.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>폐기물 유형</th><th>처리 방법</th><th>배출 특성</th></tr>
       <tr><td>일반 생활 폐기물</td><td>Burn Pit 소각</td><td>CO₂, Dioxin, Furan</td></tr>
       <tr><td>손상 차량·장비</td><td>해체·야외 방치</td><td>냉매 누출(HFCs), 오일 누출</td></tr>
       <tr><td>의료 폐기물</td><td>고온 소각</td><td>N₂O, CO</td></tr>
-      <tr><td>탄약 불발탄</td><td>통제 폭파</td><td>폭발 배출</td></tr>
       <tr><td>연료 오염 토양</td><td>매립 또는 방치</td><td>CH₄(분해 과정)</td></tr></table>`,
-    formulas:[
-      'E = 폐기물량 [t] × 처리방법별 EF [kgCO₂eq/t]\n\n소각 EF: ~1.0 kgCO₂eq/t\n매립: CH₄ 발생 → × GWP(27.9)'
-    ],
-    src:['IPCC 폐기물 처리 가이드라인', 'US EPA Burn Pit 배출 연구'],
-    limit:'야전 폐기물 처리 방법·수량 기록 부재'
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>IPCC 폐기물 처리 가이드라인</li>
+        <li>US EPA Burn Pit 배출 연구</li>
+      </ul>
+      <div class="warn">⚠️ 야전 폐기물 처리 방법·수량 기록 부재</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">E = 폐기물량 [t] × 처리방법별 EF [kgCO₂eq/t]
+
+매립: CH₄ 발생 → × GWP(27.9)</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">소각 배출계수</div><div class="value">~1.0 kgCO₂eq/t</div></div>
+      <div class="ghg-card"><div class="label">CH₄ GWP (매립)</div><div class="value">27.9</div></div>`
+    ]
   },
 
   'fuel-lca': {
-    tag:'SCOPE 3', tc:'t3', icon:'🔬',
-    title:'연료·에너지 관련 활동 LCA',
-    def:'Scope 1·2에서 직접 계산되지 않은 연료 및 에너지 생애주기(LCA) 상의 업스트림·다운스트림 배출. 연료를 쓰기 전까지의 모든 과정과 전기를 보내는 과정의 손실을 포착.',
-    extra:`<div class="formula green">[연료 업스트림]
-원유 시추 → 가스 플레어링/누출(Fugitive CH₄)
-→ 정제 에너지 사용 → 파이프라인/유조선 운송 → 군 연료 저장소
+    tag:'SCOPE 3', tc:'t3', icon:'🔬', title:'연료·에너지 관련 활동 LCA',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">Scope 1·2에서 직접 계산되지 않은 연료 및 에너지 생애주기(LCA) 상의 업스트림·다운스트림 배출. 연료를 쓰기 전까지의 모든 과정과 전력 송전 손실을 포착.</div>`,
+      `<div class="step-title">분류</div>
+      <div class="formula">[연료 업스트림]
+원유 시추 → 가스 플레어링 → 정제 에너지 → 유조선 운송 → 군 저장소
 
-[송전 및 배선 손실]
-발전소 → 송전선 저항 손실 → 변전소 손실 → 기지 수전
-(일반적으로 발전량의 5~10% 손실)</div>`,
-    formulas:[
-      '업스트림:\n군 연료 소비량 × WTT 계수 = 업스트림 배출\n\n송전 손실:\n국가별 전력 손실률 × 기지 전력 소비량'
-    ],
-    src:['GREET (Greenhouse gases, Regulated Emissions, Energy use in Transportation)', 'Ecoinvent LCA 데이터베이스'],
-    limit:'군 연료 공급 경로 비공개'
+[송전 손실]
+발전소 → 송전선 저항 → 변전소 손실 → 기지 수전
+(발전량의 5~10% 손실)</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>GREET (미국 EPA 연료 LCA 데이터베이스)</li>
+        <li>Ecoinvent LCA 데이터베이스</li>
+        <li>국가별 전력 손실률 통계</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula">업스트림:
+군 연료 소비량 × WTT 계수 = 업스트림 배출
+
+송전 손실:
+국가별 전력 손실률 × 기지 전력 소비량</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">Jet-A Well-to-Tank (WTT) 배출계수</div><div class="value">~0.6 kgCO₂eq/kg</div></div>
+      <div class="ghg-card"><div class="label">송전 손실률 (일반)</div><div class="value">5 ~ 10%</div></div>`
+    ]
   },
 
-  /* ───────── SCOPE 3+ ───────── */
   'destroyed-equip': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🔧',
-    title:'파괴된 군사 장비 (Destroyed Military Equipment)',
-    def:'전투 중 파괴된 전차·전투기·차량 등의 잔여 내재 탄소(Stranded Embodied Carbon)를 일시 귀속. 장비가 설계 수명보다 일찍 파괴되어 남은 수명만큼의 내재 탄소가 낭비된다는 개념.',
-    extra:`<table class="tbl"><tr><th>손실 상태</th><th>귀속 방법</th></tr>
-      <tr><td>파괴 (Destroyed)</td><td>내재 탄소 100% 귀속</td></tr>
-      <tr><td>손상 (Damaged)</td><td>수리 가능성에 따라 부분 귀속 (기본값 0.3)</td></tr>
-      <tr><td>노획 (Captured)</td><td>소유권 변경으로 귀속 제외 또는 별도 처리</td></tr></table>
-      <div class="warn">정상 운용 장비는 전쟁 전부터 군이 보유하고 있었으므로 전쟁 귀속 배출에서 제외.<br>전시 신규 구매도 기존 타국 보유 장비 이전이 많아 제외.<br><b>데이터 소스: Oryx OSINT 프로젝트</b> — 위성·소셜미디어로 시각 확인된 장비 손실 실시간 집계</div>`,
-    formulas:[
-      'E = Σ (Q_y × d_y × EF_y)\n\nQ_y: 파괴/손상된 장비 수량 [대]\nd_y: 손상 계수 (파괴=1.0, 손상=0.3)\nEF_y: 장비 유형별 내재 탄소 배출계수\n\n군사 장비 LCA 데이터 부재 → 민간 기계 proxy 활용\n지표적 탄소 발자국: 장비 무게 1 kg당 6 kgCO₂\n\n= Oryx 손실 수량 × 내재 탄소 × (잔여 수명 / 설계 총 수명)'
-    ],
-    src:['Oryx OSINT (osintdefender.com)', 'Ecoinvent 민간 장비 LCA 데이터 (트랙터·트럭·건설 장비 proxy 활용)'],
-    limit:'군사 장비 전과정 배출 데이터 거의 존재하지 않아 민간 기계 데이터를 대리 지표로 활용'
+    tag:'SCOPE 3+', tc:'t3p', icon:'🔧', title:'파괴된 군사 장비 (Destroyed Equipment)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전투 중 파괴된 전차·전투기·차량 등의 잔여 내재 탄소(Stranded Embodied Carbon)를 일시 귀속. 장비가 설계 수명보다 일찍 파괴되어 남은 수명만큼의 내재 탄소가 낭비된다는 개념.</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>손실 상태</th><th>귀속 방법</th></tr>
+      <tr><td>파괴 (Destroyed)</td><td>내재 탄소 100% 귀속 (손상계수 = 1.0)</td></tr>
+      <tr><td>손상 (Damaged)</td><td>부분 귀속 (기본값 손상계수 = 0.3)</td></tr>
+      <tr><td>노획 (Captured)</td><td>소유권 변경으로 귀속 제외</td></tr></table>
+      <div class="warn">정상 운용 장비: 전쟁 전부터 보유하고 있었으므로 전쟁 귀속 배출에서 제외</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li><b>Oryx OSINT 프로젝트</b>: 위성·소셜미디어로 시각 확인된 장비 손실 실시간 집계</li>
+        <li>Ecoinvent 민간 장비 LCA 데이터 (트랙터·트럭 proxy 활용)</li>
+      </ul>
+      <div class="warn">⚠️ 군사 장비 LCA 데이터 거의 없음 → 민간 기계 데이터를 대리 지표로 활용</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E = Σ (Q_y × d_y × EF_y)
+
+Q_y : 파괴/손상된 장비 수량 [대]
+d_y : 손상 계수 (파괴=1.0, 손상=0.3)
+EF_y: 장비 유형별 내재 탄소 배출계수
+
+= Oryx 손실 수량 × 내재 탄소 × (잔여 수명 / 설계 총 수명)</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card red"><div class="label">지표적 탄소 발자국 (장비 무게 기준)</div><div class="value">6 kgCO₂/kg 장비</div></div>
+      <div class="ghg-card"><div class="label">손상된 장비 기본 손상계수</div><div class="value">0.3</div></div>`
+    ]
   },
 
   'wildfires': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🔥',
-    title:'산불·지표 화재 (Wildfires and Surface Fires)',
-    def:'전쟁 중 폭격·소이탄·포격 불씨로 시작되거나 방화로 인해 발생하는 비의도적 생태계 연소. 바이오매스가 연소되면 수십 년간 흡수한 탄소가 단시간에 방출.',
-    extra:`<b style="font-size:0.85rem;color:#333">위성 기반 탐지 5단계</b>
-      <ul class="dl" style="margin-top:6px">
-        <li>1단계: NASA FIRMS, Copernicus EFFIS으로 전쟁 지역 열점(Hot Spot) 식별</li>
+    tag:'SCOPE 3+', tc:'t3p', icon:'🔥', title:'산불·지표 화재 (Wildfires and Surface Fires)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전쟁 중 폭격·소이탄·포격 불씨로 시작되거나 방화로 인해 발생하는 비의도적 생태계 연소. 바이오매스가 연소되면 수십 년간 흡수한 탄소가 단시간에 방출.</div>`,
+      `<div class="step-title">분류 (위성 탐지 5단계)</div>
+      <ul class="dl">
+        <li>1단계: NASA FIRMS, Copernicus EFFIS으로 열점(Hot Spot) 식별</li>
         <li>2단계: 화재 외곽선(Fire Perimeter) 추출 → 면적 산출 [ha]</li>
-        <li>3단계: 완충지대(Buffer Zone) 설정 — 화재 경계 + 일정 반경</li>
-        <li>4단계: 생태계 유형별(산림·초지·농경지·이탄지) 바이오매스 밀도 적용</li>
-        <li>5단계: IPCC 생물 연소 배출계수 × 연소 면적 × 연소율 = 총 배출</li>
+        <li>3단계: 완충지대(Buffer Zone) 설정</li>
+        <li>4단계: 생태계 유형별 바이오매스 밀도 적용</li>
+        <li>5단계: IPCC 생물 연소 배출계수 × 연소 면적 × 연소율</li>
       </ul>`,
-    formulas:[
-      'E = S × B × CF × EF\n\nS:  화재 면적 [ha]\nB:  연소 가능한 바이오매스 [t/ha]\nCF: 연소 효율 (Combustion Factor, 0.2~0.9)\nEF: 온실가스 배출계수 [tCO₂eq/t]\n\n배출 물질: CO₂, CO, CH₄, N₂O, NOx, Black Carbon'
-    ],
-    src:['GFEDv4 화재 배출 데이터베이스', 'NASA FIRMS 위성 화재 탐지', 'IPCC 생물 연소 배출계수', 'Cazzolla Gatti et al., Global Ecology and Conservation (2025)'],
-    limit:'점령·교전 지역 진화 방해로 현장 확인 불가 — 위성 원격탐사로만 추산'
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>GFEDv4 화재 배출 데이터베이스</li>
+        <li>NASA FIRMS 위성 화재 탐지</li>
+        <li>Landsat, Sentinel-2 위성 영상</li>
+        <li>Cazzolla Gatti et al., Global Ecology and Conservation (2025)</li>
+      </ul>
+      <div class="warn">⚠️ 점령·교전 지역 진화 방해로 현장 확인 불가 — 위성 원격탐사로만 추산</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E = S × B × CF × EF
+
+S  : 화재 면적 [ha]
+B  : 연소 가능한 바이오매스 [t/ha]
+CF : 연소 효율 (Combustion Factor)
+EF : 온실가스 배출계수 [tCO₂eq/t]</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card red"><div class="label">연소 효율 (CF) 범위</div><div class="value">0.2 ~ 0.9</div></div>
+      <div class="ghg-card"><div class="label">배출 물질</div><div class="value">CO₂, CO, CH₄, N₂O, NOx, BC</div></div>`
+    ]
   },
 
   'civilian-infra': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🏚️',
-    title:'민간 인프라 피해 (Civilian Infrastructure Damage)',
-    def:'폭격·포격으로 건물·도로·교량이 파괴될 때 발생하는 배출: ① 파괴 순간의 분진·화재 배출, ② 건물이 보유하던 내재 탄소의 조기 방출 (수명 단축으로 낭비).',
-    extra:`<div class="warn">평균 배출계수: 우크라이나 환경보호부가 승인한 가연성 물질 1톤당 2.64 tCO₂ 적용</div>`,
-    formulas:[
-      '총 배출:\nE_civil = M_burnt [t] × EF_civil [tCO₂eq/t]\n\n연소 물질량:\nM_burnt = N_buildings × M_per_building [t]\n\n평균 배출계수:\nEF_civil = Σ (EF_m × f_m) × CF\n\nEF_m: 재료 m의 배출계수 [tCO₂eq/t]\nf_m: 재료 m의 질량 비율\nCF: 연소 계수\n  부분 연소: CF = 0.5\n  완전 연소: CF = 1.0\n\n내재 탄소:\nRC 구조 아파트 ≈ 500~800 kgCO₂eq/㎡'
-    ],
-    src:['우크라이나 환경보호 및 천연자원부 배출량 산정 방법론', 'Initiative on GHG Accounting of War (2026)', 'UNOSAT 피해 평가 데이터'],
-    limit:'건물별 가연성 물질 구성비 파악 어려움 — 부분/완전 연소 구분 필요'
+    tag:'SCOPE 3+', tc:'t3p', icon:'🏚️', title:'민간 인프라 피해 (Civilian Infrastructure)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">폭격·포격으로 건물·도로·교량이 파괴될 때 발생하는 배출: ① 파괴 순간의 분진·화재 배출 ② 건물이 보유하던 내재 탄소의 조기 방출 (수명 단축으로 낭비).</div>`,
+      `<div class="step-title">분류 (연소 계수)</div>
+      <table class="tbl"><tr><th>상태</th><th>연소 계수(CF)</th></tr>
+      <tr><td>부분 연소된 건물</td><td>0.5</td></tr>
+      <tr><td>완전 연소된 건물</td><td>1.0</td></tr></table>
+      <div class="warn">평균 배출계수: 우크라이나 환경보호부 승인 — 가연성 물질 1톤당 2.64 tCO₂</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>우크라이나 환경보호 및 천연자원부 배출량 산정 방법론</li>
+        <li>UNOSAT 피해 평가 데이터</li>
+        <li>위성 SAR 영상 (건물 피해 탐지)</li>
+        <li>Initiative on GHG Accounting of War (2026)</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E_civil = M_burnt [t] × EF_civil [tCO₂eq/t]
+
+M_burnt = N_buildings × M_per_building [t]
+
+EF_civil = Σ (EF_m × f_m) × CF
+  EF_m : 재료 m의 배출계수
+  f_m  : 재료 m의 질량 비율
+  CF   : 연소 계수</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card red"><div class="label">가연성 물질 평균 배출계수</div><div class="value">2.64 tCO₂/t</div></div>
+      <div class="ghg-card"><div class="label">RC 구조 아파트 내재 탄소</div><div class="value">500 ~ 800 kgCO₂eq/㎡</div></div>`
+    ]
   },
 
   'energy-infra': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🏭',
-    title:'에너지 인프라 폭격 (Energy Infrastructure Attacks)',
-    def:'정유 시설·유류 저장소·발전소·천연가스 파이프라인 폭격 시 저장 연료·가스가 통제되지 않은 상태로 연소·누출. 유정 화재의 경우 수개월간 연소 지속 가능 (1991년 쿠웨이트 유정 화재 사례).',
-    extra:`<table class="tbl"><tr><th>시설 유형</th><th>배출 경로</th></tr>
+    tag:'SCOPE 3+', tc:'t3p', icon:'🏭', title:'에너지 인프라 폭격 (Energy Infrastructure)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">정유 시설·유류 저장소·발전소·천연가스 파이프라인 폭격 시 저장 연료·가스가 통제되지 않은 상태로 연소·누출. 유정 화재의 경우 수개월간 지속 가능 (1991년 쿠웨이트 사례).</div>`,
+      `<div class="step-title">분류</div>
+      <table class="tbl"><tr><th>시설 유형</th><th>배출 경로</th></tr>
       <tr><td>유류 저장소</td><td>탱크 내 연료 전량 화재 연소 → CO₂, HC, BC</td></tr>
-      <tr><td>정유 시설</td><td>공정 내 탄화수소 누출·연소, 촉매 파괴</td></tr>
-      <tr><td>천연가스 파이프라인</td><td>메탄 직접 누출 (GWP 27.9로 CO₂보다 위험)</td></tr>
-      <tr><td>발전소</td><td>내부 연료 재고 연소 + 변압기 오일 누출</td></tr></table>`,
-    formulas:[
-      '총 배출:\nE_energy = E_liquid + E_gas + E_SF6\n\n① 액체 연료·석유 인프라:\nE_liquid = Σ (FC_y × NCV_y × CC_y × 44/12)\n\n② 천연가스 인프라:\nE_gas = Q_flared × EF_CH4 + Q_leak × GWP_CH4\nGWP_CH4 = 27.9\n\n③ 전력 인프라 (변압기 SF6 누출):\nE_SF6 = Q_SF6 [t] × GWP_SF6\n※ GWP_SF6 = 23,500'
-    ],
-    src:['Initiative on GHG Accounting of War (2026)', 'NASA FIRMS 열감지', 'Sentinel-5P SO₂·NO₂ 농도 위성'],
-    limit:'에너지 인프라 저장 연료량 비공개 — 위성 열감지로 간접 추산'
+      <tr><td>정유 시설</td><td>탄화수소 누출·연소, 촉매 파괴</td></tr>
+      <tr><td>천연가스 파이프라인</td><td>메탄 직접 누출 (GWP 27.9)</td></tr>
+      <tr><td>발전소</td><td>연료 재고 연소 + 변압기 오일 누출 (SF6)</td></tr></table>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>NASA FIRMS 열감지 위성</li>
+        <li>Sentinel-5P SO₂·NO₂ 농도 위성</li>
+        <li>Initiative on GHG Accounting of War (2026)</li>
+      </ul>
+      <div class="warn">⚠️ 에너지 인프라 저장 연료량 비공개 — 위성 열감지로 간접 추산</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">총 배출: E = E_liquid + E_gas + E_SF6
+
+① 액체 연료: E = Σ (FC_y × NCV_y × CC_y × 44/12)
+② 천연가스: E = Q_flared × EF + Q_leak × GWP_CH4
+③ SF6 누출: E = Q_SF6 [t] × GWP_SF6</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card"><div class="label">CH₄ GWP (메탄 누출)</div><div class="value">27.9</div></div>
+      <div class="ghg-card red"><div class="label">SF₆ GWP (변압기 누출)</div><div class="value">23,500</div></div>`
+    ]
   },
 
   'reconstruction': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🔨',
-    title:'복구·재건 (Reconstruction)',
-    def:'전쟁 후 파괴된 인프라 재건 과정의 미래 배출을 현재 시점에서 추정. 전쟁 배출의 "장기 꼬리(Long Tail)". 우크라이나전 총배출의 약 42%, 이란전 약 48%를 재건 배출이 차지.',
-    extra:`<div class="warn">할인율(Discount Rate) 적용 여부: 미래 배출이므로 NPV 개념 도입 가능하나, 탄소회계에서는 실제 발생 연도 귀속이 원칙 → 추정치로 별도 표기 권장</div>`,
-    formulas:[
-      'E_recon = Σ (자재량_i × ECF_i)\n        + 건설 장비 연료 소비\n        + 재건 자재 운송 배출\n\nECF (Embodied Carbon Factor):\n시멘트: ~0.8 tCO₂/t\n철강(BOF): ~2.8 tCO₂/t\n아스팔트: ~0.05 tCO₂/t\n\n※ UNESCO: 카호우카 댐 복구만 4억 8,500만 달러 이상'
-    ],
-    src:['Initiative on GHG Accounting of War (2026)', 'UNEP 우크라이나 환경 피해 평가 (2022)', 'OECD Environmental Impacts of War in Ukraine (2022)'],
-    limit:'재건 기간이 수십 년에 걸쳐 발생 — 현재 통계에 미반영'
+    tag:'SCOPE 3+', tc:'t3p', icon:'🔨', title:'복구·재건 (Reconstruction)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전쟁 후 파괴된 인프라 재건 과정의 미래 배출을 현재 시점에서 추정. 전쟁 배출의 "장기 꼬리(Long Tail)". 우크라이나전 총배출의 약 42%, 이란전 약 48%를 재건 배출이 차지.</div>`,
+      `<div class="step-title">분류</div>
+      <div class="step-body">재건 배출 = 재건 자재 내재 탄소 + 건설 장비 연료 소비 + 재건 자재 운송 배출</div>
+      <div class="warn">할인율: 미래 배출이므로 NPV 개념 도입 가능하나, 탄소회계에서는 실제 발생 연도 귀속이 원칙 → 추정치로 별도 표기 권장</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>Initiative on GHG Accounting of War (2026)</li>
+        <li>UNEP 우크라이나 환경 피해 평가 (2022)</li>
+        <li>OECD Environmental Impacts of War in Ukraine (2022)</li>
+        <li>World Bank 재건 비용 추산</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E_recon = Σ (자재량_i × ECF_i)
+         + 건설 장비 연료 소비
+         + 재건 자재 운송 배출
+
+ECF: Embodied Carbon Factor</div>`,
+      `<div class="step-title">GHG 값 (배출계수)</div>
+      <div class="ghg-card red"><div class="label">시멘트 내재 탄소</div><div class="value">~0.8 tCO₂/t</div></div>
+      <div class="ghg-card red"><div class="label">철강 (BOF) 내재 탄소</div><div class="value">~2.8 tCO₂/t</div></div>
+      <div class="ghg-card"><div class="label">아스팔트 내재 탄소</div><div class="value">~0.05 tCO₂/t</div></div>`
+    ]
   },
 
   'displacement': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🚶',
-    title:'인구 이동·난민 (Population Displacement)',
-    def:'전쟁으로 인한 강제 이주(피난민·난민) 과정에서 차량·버스·기차·선박 이동이 유발하는 교통 배출. 우크라이나 전쟁 초기에만 수백만 명이 유럽으로 이동.',
-    formulas:[
-      '방법 1 (승객-킬로미터 기반):\nE = 이동 인원 [명] × 이동 거리 [km] × EF [kgCO₂eq/인·km]\n\n방법 2 (연료 소비 기반):\n차량 수 × 평균 이동 거리 × 연비 → 총 연료 소비 × EF\n\n수송 수단별 EF:\n승용차:  ~0.17 kgCO₂eq/인·km\n버스:    ~0.06 kgCO₂eq/인·km\n철도:    ~0.04 kgCO₂eq/인·km\n단거리 항공: ~0.26 kgCO₂eq/인·km'
-    ],
-    src:['UNHCR 난민 통계 (2022~)', 'Initiative on GHG Accounting of War (2026)'],
-    limit:'이동 경로·수단 파악 어려움 — UNHCR 데이터로 추산'
+    tag:'SCOPE 3+', tc:'t3p', icon:'🚶', title:'인구 이동·난민 (Population Displacement)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">전쟁으로 인한 강제 이주(피난민·난민) 과정에서 차량·버스·기차·선박 이동이 유발하는 교통 배출. 우크라이나 전쟁 초기에만 수백만 명이 유럽으로 이동.</div>`,
+      `<div class="step-title">분류 (산출 방법)</div>
+      <div class="step-body"><b>방법 1</b> — 승객-킬로미터 기반:<br>이동 인원 × 이동 거리 × 수단별 EF<br><br>
+      <b>방법 2</b> — 연료 소비 기반:<br>차량 수 × 평균 이동 거리 × 연비 → 총 연료 소비 × EF</div>`,
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>UNHCR 난민 통계 (2022~)</li>
+        <li>Initiative on GHG Accounting of War (2026)</li>
+      </ul>
+      <div class="warn">⚠️ 이동 경로·수단 파악 어려움 — UNHCR 데이터로 추산</div>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E = 이동 인원 [명] × 이동 거리 [km] × EF [kgCO₂eq/인·km]</div>`,
+      `<div class="step-title">GHG 값 (수단별 배출계수)</div>
+      <div class="ghg-card"><div class="label">승용차</div><div class="value">~0.17 kgCO₂eq/인·km</div></div>
+      <div class="ghg-card"><div class="label">버스</div><div class="value">~0.06 kgCO₂eq/인·km</div></div>
+      <div class="ghg-card"><div class="label">철도</div><div class="value">~0.04 kgCO₂eq/인·km</div></div>
+      <div class="ghg-card red"><div class="label">단거리 항공</div><div class="value">~0.26 kgCO₂eq/인·km</div></div>`
+    ]
   },
 
   'aviation-reroute': {
-    tag:'SCOPE 3+', tc:'t3p', icon:'🛫',
-    title:'항공 우회 (Aviation Rerouting)',
-    def:'분쟁 지역 영공 폐쇄 및 해협 봉쇄로 민간 항공기·상선이 원래 항로보다 긴 경로로 우회하면서 발생하는 추가 연료 소비.',
-    extra:`<table class="tbl"><tr><th>사례</th><th>우회 영향</th></tr>
+    tag:'SCOPE 3+', tc:'t3p', icon:'🛫', title:'항공 우회 (Aviation Rerouting)',
+    steps: [
+      `<div class="step-title">정의</div>
+      <div class="step-body">분쟁 지역 영공 폐쇄 및 해협 봉쇄로 민간 항공기·상선이 원래 항로보다 긴 경로로 우회하면서 발생하는 추가 연료 소비.</div>`,
+      `<div class="step-title">분류 (사례)</div>
+      <table class="tbl"><tr><th>사례</th><th>우회 영향</th></tr>
       <tr><td>우크라이나 영공 폐쇄</td><td>유럽-아시아 노선 수천 km 우회, 비행 시간 1~3시간 증가</td></tr>
-      <tr><td>홍해 분쟁 (후티 공격)</td><td>수에즈 운하 기피 → 희망봉 우회, 항해 거리 6,000~9,000 km 증가</td></tr>
+      <tr><td>홍해 분쟁 (후티 공격)</td><td>수에즈 우회 → 희망봉, 항해 거리 6,000~9,000 km 증가</td></tr>
       <tr><td>벨라루스 영공 폐쇄</td><td>북유럽-중앙아시아 노선 우회</td></tr></table>`,
-    formulas:[
-      'E_reroute = ΔDist [km] × 운항 수 × 단위 연료 소비 × EF\n\nΔDist = 우회 거리 - 원래 거리\n\n항공: ICAO 탄소 계산기 기준\n해운: IMO 선박 유형별 해리당 연료 소비율'
-    ],
-    src:['ADS-B Exchange 항공 추적 데이터', 'Eurocontrol 우회 항로 분석', 'Initiative on GHG Accounting of War (2026)'],
-    limit:'비행운(Contrail) 온난화 효과는 CO₂의 2~4배이나 국제 표준 산정법 미확립'
+      `<div class="step-title">데이터 수집</div>
+      <ul class="dl">
+        <li>ADS-B Exchange 항공 추적 데이터</li>
+        <li>Eurocontrol 우회 항로 분석</li>
+        <li>IMO 선박 유형별 연료 소비율</li>
+        <li>Initiative on GHG Accounting of War (2026)</li>
+      </ul>`,
+      `<div class="step-title">수식·계산</div>
+      <div class="formula red">E = ΔDist [km] × 운항 수 × 단위 연료 소비 × EF
+
+ΔDist = 우회 거리 - 원래 거리
+
+항공: ICAO 탄소 계산기 기준
+해운: IMO 선박 유형별 해리당 연료 소비율</div>`,
+      `<div class="step-title">GHG 값</div>
+      <div class="ghg-card"><div class="label">비행운(Contrail) 온난화 효과</div><div class="value">CO₂의 2 ~ 4배</div></div>
+      <div class="warn">⚠️ 비행운 국제 표준 산정법 미확립 — 별도 표기 필요</div>`
+    ]
   }
 };
 
+let curId = null, curStep = 0;
+
 function open_(id) {
-  const d = D[id]; if (!d) return;
-  const formHtml = d.formulas.map((f,i) =>
-    `<div class="formula ${d.tc==='t3p'?'red':d.tc==='t2'?'green':''}">${f.replace(/\n/g,'<br>')}</div>`
-  ).join('');
-  const srcHtml = d.src.map(s=>`<li>${s}</li>`).join('');
-  document.getElementById('mc').innerHTML = `
-    <div class="modal-icon">${d.icon}</div>
-    <span class="modal-tag ${d.tc}">${d.tag}</span>
-    <div class="modal-title">${d.title}</div>
-    <div class="sec">정의</div>
-    <div class="body">${d.def}</div>
-    ${d.extra ? `<div class="sec">범주 및 경계</div><div class="body">${d.extra}</div>` : ''}
-    <div class="sec">배출량 계산 수식</div>
-    ${formHtml}
-    <div class="sec">주요 데이터 출처</div>
-    <ul class="dl">${srcHtml}</ul>
-    ${d.limit ? `<div class="sec">데이터 한계</div><div class="body" style="color:#a05050">${d.limit}</div>` : ''}
-  `;
+  curId = id; curStep = 0;
+  const d = D[id];
+  document.getElementById('m-tag').className = 'modal-tag ' + d.tc;
+  document.getElementById('m-tag').textContent = d.tag;
+  document.getElementById('m-icon').textContent = d.icon;
+  document.getElementById('m-title').textContent = d.title;
+  renderStepBar(); renderContent();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
+function renderStepBar() {
+  const d = D[curId];
+  document.getElementById('step-bar').innerHTML = STEPS.map((s,i) =>
+    `<div class="step-item ${i===curStep?'active':i<curStep?'done':''}" onclick="goStep(${i})">${s}</div>`
+  ).join('');
+}
+
+function renderContent() {
+  const d = D[curId];
+  document.getElementById('step-content').innerHTML = d.steps[curStep];
+  document.getElementById('step-counter').textContent = `${curStep+1} / ${STEPS.length}`;
+  document.getElementById('btn-prev').disabled = curStep === 0;
+  document.getElementById('btn-next').disabled = curStep === STEPS.length - 1;
+  document.getElementById('btn-next').textContent = curStep === STEPS.length - 1 ? '완료' : '다음 →';
+  document.getElementById('step-content').scrollTop = 0;
+}
+
+function goStep(i) { curStep = i; renderStepBar(); renderContent(); }
+function navigate(dir) {
+  if (dir === 1 && curStep === STEPS.length - 1) { close_(); return; }
+  curStep = Math.max(0, Math.min(STEPS.length-1, curStep + dir));
+  renderStepBar(); renderContent();
+}
 function close_() { document.getElementById('overlay').classList.remove('open'); document.body.style.overflow=''; }
-function closeOnBg(e) { if (e.target===document.getElementById('overlay')) close_(); }
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') close_(); });
+function closeOnBg(e) { if(e.target===document.getElementById('overlay')) close_(); }
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('overlay').classList.contains('open')) return;
+  if (e.key==='Escape') close_();
+  if (e.key==='ArrowRight') navigate(1);
+  if (e.key==='ArrowLeft') navigate(-1);
+});
 </script>
 </body>
 </html>
