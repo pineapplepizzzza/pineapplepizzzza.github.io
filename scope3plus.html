@@ -246,8 +246,8 @@
     .step-counter { font-size: 0.78rem; color: #aaa; }
 
     /* 콘텐츠 스타일 */
-    .formula { background: #f0f4ff; border-left: 4px solid #2e5c7a; border-radius: 6px; padding: 10px 14px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #1a3a5c; margin: 8px 0; line-height: 1.7; }
-    .formula.red { background: #fff0f0; border-color: #8c3a3a; color: #5a1a1a; }
+    .formula { border-left: 3px solid #2e5c7a; border-radius: 0 6px 6px 0; padding: 10px 14px; font-family: 'Pretendard', 'Segoe UI', sans-serif; font-size: 0.87rem; color: #2e5c7a; margin: 10px 0; line-height: 1.85; white-space: pre-line; }
+    .formula.red { border-color: #8c3a3a; color: #6a1a1a; }
     .warn { background: #fff8e1; border-left: 4px solid #f0a500; border-radius: 6px; padding: 8px 12px; font-size: 0.82rem; color: #7a5a00; margin: 8px 0; line-height: 1.5; }
     table.tbl { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.8rem; }
     table.tbl th { background: #f0f4ff; color: #1a2b45; font-weight: 700; padding: 6px 8px; border: 1px solid #dde; text-align: left; }
@@ -258,7 +258,7 @@
     ul.dl li::before { content: '•'; position: absolute; left: 0; color: #bbb; }
     .ghg-card { background: #f8faff; border: 1px solid #dde8f5; border-radius: 8px; padding: 12px 14px; margin: 6px 0; }
     .ghg-card .label { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
-    .ghg-card .value { font-size: 1.0rem; font-weight: 700; color: #1a2b45; font-family: 'Courier New', monospace; }
+    .ghg-card .value { font-size: 1.0rem; font-weight: 700; color: #1a2b45; font-family: 'Pretendard', 'Segoe UI', sans-serif; }
     .ghg-card.red { background: #fff5f5; border-color: #f5c8c8; }
     .ghg-card.red .value { color: #8c3a3a; }
   </style>
@@ -978,41 +978,41 @@ const SCOPE_CARDS = {
 
 const SCOPE_POS = {
   s1: {
-    folder: {left:'43%', top:'50%', num:'1'},
+    folder: {left:'50%', top:'50%', num:'1'},
     items: [
-      {left:'29%', top:'20%'},
-      {left:'7%',  top:'36%'},
-      {left:'63%', top:'22%'},
-      {left:'26%', top:'68%'},
-      {left:'55%', top:'73%'},
-      {left:'74%', top:'50%'},
+      {left:'33%', top:'20%'},
+      {left:'14%', top:'36%'},
+      {left:'69%', top:'22%'},
+      {left:'32%', top:'68%'},
+      {left:'61%', top:'73%'},
+      {left:'80%', top:'50%'},
     ]
   },
   s2: {
-    folder: {left:'33%', top:'50%', num:'2'},
+    folder: {left:'40%', top:'50%', num:'2'},
     items: [
-      {left:'67%', top:'46%'},
+      {left:'72%', top:'46%'},
     ]
   },
   s3: {
-    folder: {left:'44%', top:'50%', num:'3'},
+    folder: {left:'50%', top:'50%', num:'3'},
     items: [
-      {left:'13%', top:'24%'},
-      {left:'72%', top:'18%'},
-      {left:'17%', top:'76%'},
-      {left:'68%', top:'72%'},
+      {left:'18%', top:'24%'},
+      {left:'77%', top:'18%'},
+      {left:'22%', top:'76%'},
+      {left:'74%', top:'72%'},
     ]
   },
   s3p: {
-    folder: {left:'43%', top:'50%', num:'3+'},
+    folder: {left:'50%', top:'50%', num:'3+'},
     items: [
-      {left:'8%',  top:'28%'},
-      {left:'40%', top:'20%'},
-      {left:'77%', top:'27%'},
-      {left:'6%',  top:'60%'},
-      {left:'78%', top:'62%'},
-      {left:'22%', top:'78%'},
-      {left:'61%', top:'79%'},
+      {left:'14%', top:'28%'},
+      {left:'46%', top:'20%'},
+      {left:'82%', top:'27%'},
+      {left:'13%', top:'60%'},
+      {left:'83%', top:'62%'},
+      {left:'28%', top:'78%'},
+      {left:'67%', top:'79%'},
     ]
   }
 };
