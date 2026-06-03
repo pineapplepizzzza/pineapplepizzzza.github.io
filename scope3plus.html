@@ -3,17 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>전쟁 탄소배출 분류 체계</title>
+  <title>SCOPE 3+ Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: '신라문화체';
+      src: url('./SillaCulture.woff2') format('woff2'),
+           url('./SillaCulture.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Pretendard', 'Segoe UI', Arial, sans-serif; background: #f4f6f9; color: #222; min-height: 100vh; padding: 40px 20px 60px; }
+    body { font-family: 'Pretendard', 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #222; min-height: 100vh; }
 
-    header { text-align: center; margin-bottom: 40px; }
-    header h1 { font-size: 1.7rem; font-weight: 700; color: #1a2b45; margin-bottom: 4px; }
-    header h2 { font-size: 1rem; font-weight: 400; color: #1B6CA8; margin-bottom: 6px; }
-    header p { font-size: 0.82rem; color: #999; }
+    /* ─── LANDING ─── */
+    #landing {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 48px 20px 52px; background: #ffffff;
+    }
+    .main-title {
+      font-family: '신라문화체', 'Noto Serif KR', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: #111; margin-bottom: 36px; text-align: center; letter-spacing: 0.01em;
+    }
 
+    /* Board */
+    .board {
+      background: #0d1117;
+      clip-path: polygon(0% 7%, 50% 0%, 100% 7%, 100% 100%, 0% 100%);
+      padding: 52px 44px 44px;
+      width: min(540px, 92vw);
+      position: relative;
+    }
+    .bolt {
+      position: absolute; width: 13px; height: 13px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, #999, #444);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+    .bolt-tl { top: 36px; left: 18px; }
+    .bolt-tr { top: 36px; right: 18px; }
+    .bolt-bl { bottom: 18px; left: 18px; }
+    .bolt-br { bottom: 18px; right: 18px; }
+
+    .board-header { text-align: center; margin-bottom: 20px; }
+    .board-level {
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 1.1rem; font-weight: 700;
+      color: #ffffff; letter-spacing: 0.28em; margin-bottom: 10px;
+    }
+    .board-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.18); }
+
+    /* Folders */
+    .folders-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 28px 32px; margin-top: 26px; justify-items: center;
+    }
+    .folder-wrapper {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      cursor: pointer; transition: transform 0.18s;
+    }
+    .folder-wrapper:hover { transform: scale(1.06); }
+    .folder-wrapper:hover .folder-body { filter: brightness(1.13); }
+
+    .folder-container { position: relative; width: 116px; height: 98px; }
+
+    .folder-tab {
+      position: absolute; top: 0; left: 0; width: 52px; height: 20px;
+      background: linear-gradient(to bottom, #c4c8d0 0%, #aeb2ba 100%);
+      border-radius: 7px 7px 0 0; z-index: 1;
+    }
+    .folder-body {
+      position: absolute; top: 13px; left: 0; width: 116px; height: 85px;
+      background: linear-gradient(155deg, #d0d4dc 0%, #bec2ca 28%, #aaaeb6 68%, #9a9ea6 100%);
+      border-radius: 3px 9px 9px 9px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.38), inset 0 -2px 5px rgba(0,0,0,0.18), 0 5px 14px rgba(0,0,0,0.45);
+      display: flex; align-items: center; justify-content: center;
+      transition: filter 0.18s;
+    }
+    .folder-number {
+      font-family: 'Pretendard', 'Segoe UI', sans-serif; font-size: 2.9rem; font-weight: 700;
+      color: rgba(70, 74, 82, 0.65); line-height: 1; margin-top: 10px;
+    }
+    .folder-badge {
+      position: absolute; top: 3px; left: 3px; width: 25px; height: 25px;
+      background: #e53935; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 0.68rem; font-weight: 700;
+      color: #fff; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.35);
+    }
+    .folder-label {
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 0.75rem;
+      color: #ffffff; letter-spacing: 0.08em;
+    }
+
+    /* Footer */
+    .footer-credit {
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 0.82rem;
+      color: #444; margin-top: 32px; letter-spacing: 0.14em;
+    }
+
+    /* ─── SCOPE DETAIL VIEW ─── */
+    #scope-view { display: none; min-height: 100vh; background: #f4f6f9; padding: 30px 20px 60px; }
+    #scope-view.open { display: block; }
+
+    .scope-view-topbar {
+      display: flex; align-items: center; gap: 14px;
+      max-width: 720px; margin: 0 auto 28px;
+    }
+    .back-btn {
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 0.78rem; font-weight: 700;
+      background: #0d1117; color: #fff; border: none; border-radius: 8px;
+      padding: 8px 18px; cursor: pointer; letter-spacing: 0.05em; transition: background 0.15s;
+    }
+    .back-btn:hover { background: #1c2a3a; }
+    .scope-view-title {
+      font-family: 'Cascadia Code', 'Courier New', monospace; font-size: 1rem; font-weight: 700;
+      color: #0d1117; letter-spacing: 0.1em;
+    }
+
+    .scope-content { max-width: 720px; margin: 0 auto; }
     .scope-section { margin-bottom: 24px; }
     .scope-row { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
     .scope-header { display: flex; flex-direction: column; align-items: center; min-width: 60px; padding-top: 4px; }
@@ -88,57 +200,72 @@
 </head>
 <body>
 
-<header>
-  <h1>전쟁 탄소배출 분류 체계</h1>
-  <h2>Scope 1 · 2 · 3 · 3+ 세부 요소 해설</h2>
-  <p>각 항목을 클릭 → 좌우 버튼으로 단계별 정보 확인 &nbsp;|&nbsp; 9팀 캡스톤디자인</p>
-</header>
+<!-- ═══ LANDING ═══ -->
+<div id="landing">
+  <h1 class="main-title">SCOPE 3+ Framework</h1>
 
-<!-- SCOPE 1 -->
-<div class="scope-section"><div class="scope-row">
-  <div class="scope-header"><div class="scope-badge s1">SCOPE<span>1</span></div></div>
-  <div class="cards-group">
-    <div class="card c1" onclick="open_('mil-install')"><div class="card-icon">🏭</div><div class="card-label">군사 시설</div></div>
-    <div class="card c1" onclick="open_('aviation')"><div class="card-icon">✈️</div><div class="card-label">항공 전력</div></div>
-    <div class="card c1" onclick="open_('ground')"><div class="card-icon">🛡️</div><div class="card-label">지상 전력</div></div>
-    <div class="card c1" onclick="open_('naval')"><div class="card-icon">⚓</div><div class="card-label">해상 전력</div></div>
-    <div class="card c1" onclick="open_('fuel-direct')"><div class="card-icon">🛢️</div><div class="card-label">연료 소비</div></div>
-    <div class="card c1" onclick="open_('munitions')"><div class="card-icon">💥</div><div class="card-label">탄약·폭발물 사용</div></div>
-  </div>
-</div></div>
+  <div class="board">
+    <div class="bolt bolt-tl"></div>
+    <div class="bolt bolt-tr"></div>
+    <div class="bolt bolt-bl"></div>
+    <div class="bolt bolt-br"></div>
 
-<!-- SCOPE 2 -->
-<div class="scope-section"><div class="scope-row">
-  <div class="scope-header"><div class="scope-badge s2">SCOPE<span>2</span></div></div>
-  <div class="cards-group">
-    <div class="card c2" onclick="open_('purchased-energy')"><div class="card-icon">⚡</div><div class="card-label">구매 에너지</div><div class="card-note">도식 전용</div></div>
-  </div>
-</div></div>
+    <div class="board-header">
+      <div class="board-level">LEVEL</div>
+      <div class="board-divider"></div>
+    </div>
 
-<!-- SCOPE 3 -->
-<div class="scope-section"><div class="scope-row">
-  <div class="scope-header"><div class="scope-badge s3">SCOPE<span>3</span></div></div>
-  <div class="cards-group">
-    <div class="card c3" onclick="open_('goods-mfg')"><div class="card-icon">🪖</div><div class="card-label">소모된 탄약·물자 제조</div></div>
-    <div class="card c3" onclick="open_('logistics')"><div class="card-icon">🚛</div><div class="card-label">군사 물자 수송</div></div>
-    <div class="card c3" onclick="open_('waste')"><div class="card-icon">♻️</div><div class="card-label">폐기물 관리</div></div>
-    <div class="card c3" onclick="open_('fuel-lca')"><div class="card-icon">🔬</div><div class="card-label">연료·에너지 LCA</div></div>
+    <div class="folders-grid">
+      <!-- SCOPE 1 -->
+      <div class="folder-wrapper" onclick="openScope('s1')">
+        <div class="folder-container">
+          <div class="folder-badge">6</div>
+          <div class="folder-tab"></div>
+          <div class="folder-body"><span class="folder-number">1</span></div>
+        </div>
+        <div class="folder-label">SCOPE_1</div>
+      </div>
+      <!-- SCOPE 2 -->
+      <div class="folder-wrapper" onclick="openScope('s2')">
+        <div class="folder-container">
+          <div class="folder-badge">1</div>
+          <div class="folder-tab"></div>
+          <div class="folder-body"><span class="folder-number">2</span></div>
+        </div>
+        <div class="folder-label">SCOPE_2</div>
+      </div>
+      <!-- SCOPE 3 -->
+      <div class="folder-wrapper" onclick="openScope('s3')">
+        <div class="folder-container">
+          <div class="folder-badge">4</div>
+          <div class="folder-tab"></div>
+          <div class="folder-body"><span class="folder-number">3</span></div>
+        </div>
+        <div class="folder-label">SCOPE_3</div>
+      </div>
+      <!-- SCOPE 3+ -->
+      <div class="folder-wrapper" onclick="openScope('s3p')">
+        <div class="folder-container">
+          <div class="folder-badge">7</div>
+          <div class="folder-tab"></div>
+          <div class="folder-body"><span class="folder-number">3+</span></div>
+        </div>
+        <div class="folder-label">SCOPE_3+</div>
+      </div>
+    </div>
   </div>
-</div></div>
 
-<!-- SCOPE 3+ -->
-<div class="scope-section"><div class="scope-row">
-  <div class="scope-header"><div class="scope-badge s3p">SCOPE<span>3+</span></div></div>
-  <div class="cards-group">
-    <div class="card c3p" onclick="open_('destroyed-equip')"><div class="card-icon">🔧</div><div class="card-label">파괴된 군사 장비</div></div>
-    <div class="card c3p" onclick="open_('wildfires')"><div class="card-icon">🔥</div><div class="card-label">산불·지표 화재</div></div>
-    <div class="card c3p" onclick="open_('civilian-infra')"><div class="card-icon">🏚️</div><div class="card-label">민간 인프라 피해</div></div>
-    <div class="card c3p" onclick="open_('energy-infra')"><div class="card-icon">🏭</div><div class="card-label">에너지 인프라 폭격</div></div>
-    <div class="card c3p" onclick="open_('reconstruction')"><div class="card-icon">🔨</div><div class="card-label">복구·재건</div></div>
-    <div class="card c3p" onclick="open_('displacement')"><div class="card-icon">🚶</div><div class="card-label">인구 이동·난민</div></div>
-    <div class="card c3p" onclick="open_('aviation-reroute')"><div class="card-icon">🛫</div><div class="card-label">항공 우회</div></div>
+  <div class="footer-credit">CAPSTONE DESIGN_TEAM 9.</div>
+</div>
+
+<!-- ═══ SCOPE DETAIL ═══ -->
+<div id="scope-view">
+  <div class="scope-view-topbar">
+    <button class="back-btn" onclick="backToLanding()">← BACK</button>
+    <div class="scope-view-title" id="scope-view-title"></div>
   </div>
-</div></div>
+  <div class="scope-content" id="scope-content"></div>
+</div>
 
 <!-- MODAL -->
 <div class="overlay" id="overlay" onclick="closeOnBg(event)">
@@ -700,6 +827,85 @@ ECF: Embodied Carbon Factor</div>`,
     ]
   }
 };
+
+// ── Folder navigation ──
+const SCOPE_CARDS = {
+  s1: {
+    title: 'SCOPE_1',
+    badge: 's1', badgeLabel: 'SCOPE 1', cardClass: 'c1',
+    items: [
+      { id:'mil-install',   icon:'🏭', label:'군사 시설' },
+      { id:'aviation',      icon:'✈️', label:'항공 전력' },
+      { id:'ground',        icon:'🛡️', label:'지상 전력' },
+      { id:'naval',         icon:'⚓', label:'해상 전력' },
+      { id:'fuel-direct',   icon:'🛢️', label:'연료 소비' },
+      { id:'munitions',     icon:'💥', label:'탄약·폭발물 사용' }
+    ]
+  },
+  s2: {
+    title: 'SCOPE_2',
+    badge: 's2', badgeLabel: 'SCOPE 2', cardClass: 'c2',
+    items: [
+      { id:'purchased-energy', icon:'⚡', label:'구매 에너지', note:'도식 전용' }
+    ]
+  },
+  s3: {
+    title: 'SCOPE_3',
+    badge: 's3', badgeLabel: 'SCOPE 3', cardClass: 'c3',
+    items: [
+      { id:'goods-mfg', icon:'🪖', label:'소모된 탄약·물자 제조' },
+      { id:'logistics', icon:'🚛', label:'군사 물자 수송' },
+      { id:'waste',     icon:'♻️', label:'폐기물 관리' },
+      { id:'fuel-lca',  icon:'🔬', label:'연료·에너지 LCA' }
+    ]
+  },
+  s3p: {
+    title: 'SCOPE_3+',
+    badge: 's3p', badgeLabel: 'SCOPE 3+', cardClass: 'c3p',
+    items: [
+      { id:'destroyed-equip',  icon:'🔧', label:'파괴된 군사 장비' },
+      { id:'wildfires',        icon:'🔥', label:'산불·지표 화재' },
+      { id:'civilian-infra',   icon:'🏚️', label:'민간 인프라 피해' },
+      { id:'energy-infra',     icon:'🏭', label:'에너지 인프라 폭격' },
+      { id:'reconstruction',   icon:'🔨', label:'복구·재건' },
+      { id:'displacement',     icon:'🚶', label:'인구 이동·난민' },
+      { id:'aviation-reroute', icon:'🛫', label:'항공 우회' }
+    ]
+  }
+};
+
+function openScope(scopeKey) {
+  const sc = SCOPE_CARDS[scopeKey];
+  document.getElementById('scope-view-title').textContent = sc.title;
+  const parts = sc.badgeLabel.split(' ');
+  const bTop = parts[0]; const bNum = parts[1] || '';
+  const cardsHtml = `
+    <div class="scope-section"><div class="scope-row">
+      <div class="scope-header">
+        <div class="scope-badge ${sc.badge}">${bTop}<span>${bNum}</span></div>
+      </div>
+      <div class="cards-group">
+        ${sc.items.map(item => `
+          <div class="card ${sc.cardClass}" onclick="open_('${item.id}')">
+            <div class="card-icon">${item.icon}</div>
+            <div class="card-label">${item.label}</div>
+            ${item.note ? `<div class="card-note">${item.note}</div>` : ''}
+          </div>`).join('')}
+      </div>
+    </div></div>`;
+  document.getElementById('scope-content').innerHTML = cardsHtml;
+  document.getElementById('landing').style.display = 'none';
+  const sv = document.getElementById('scope-view');
+  sv.classList.add('open');
+  sv.scrollTop = 0;
+  window.scrollTo(0, 0);
+}
+
+function backToLanding() {
+  document.getElementById('scope-view').classList.remove('open');
+  document.getElementById('landing').style.display = 'flex';
+  window.scrollTo(0, 0);
+}
 
 let curId = null, curStep = 0;
 
